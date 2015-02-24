@@ -1,5 +1,7 @@
 body {
 	background: #f9e933;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 100%;
 }
 
 header, main, footer {
@@ -9,8 +11,6 @@ header, main, footer {
 header .container, main .container, footer .container{
 	max-width: 855px;
 	margin: auto;
-	overflow: auto;
-	border: 2px dashed blue;
 }
 
 header {
@@ -40,6 +40,57 @@ main .mainleftcolumn {
 
 main .mainrightcolumn {
 	float: right;
-	width: 275px;
+	width: 285px;
 }
 
+footer {
+	overflow: auto;
+}
+
+footer .contact {
+	float: left;
+	width: 570px;
+}
+
+footer .sitemap {
+	float: right;
+	width: 285px;
+}
+
+.leftlist {
+	float: left;
+}
+
+.rightlist {
+	float: right;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Ubuntu';
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2.50em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	font-size: 1.10em;
+}
+
+h5 {
+	font-size: 1.00em;
+}
+
+h6 {
+	font-size: 0.80em;
+
+}
