@@ -6,7 +6,7 @@ header, main, footer {
 	min-width: 855px;
 }
 
-header .container, main .conatiner, footer .container{
+header .container, main .container, footer .container{
 	max-width: 855px;
 	margin: auto;
 }
