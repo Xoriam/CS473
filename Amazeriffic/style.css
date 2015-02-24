@@ -16,12 +16,12 @@ header {
 	overflow: auto;
 }
 
-header h1{
+header h1 {
 	float: left;
 	width: 570px;
 }
 
-header nav{
+header nav {
 	float: right;
 	width: 285px;
 }
