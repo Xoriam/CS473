@@ -9,6 +9,8 @@ header, main, footer {
 header .container, main .container, footer .container{
 	max-width: 855px;
 	margin: auto;
+	overflow: auto;
+	border: 2px dashed blue;
 }
 
 header {
@@ -16,12 +18,12 @@ header {
 	overflow: auto;
 }
 
-header h1 {
+header .container h1 {
 	float: left;
 	width: 570px;
 }
 
-header nav {
+header .container nav {
 	float: right;
 	width: 285px;
 }
@@ -30,3 +32,14 @@ main {
 	background: white;
 	overflow: auto;
 }
+
+main .mainleftcolumn {
+	float: left;
+	width: 570px;
+}
+
+main .mainrightcolumn {
+	float: right;
+	width: 275px;
+}
+
