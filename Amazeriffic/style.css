@@ -16,16 +16,20 @@ header .container, main .container, footer .container{
 header {
 	background: white;
 	overflow: auto;
+	border-bottom: 2px solid lightgray;
 }
 
 header .container h1 {
 	float: left;
 	width: 570px;
+	margin-top: 10px;
+	margin-bottom: 30px;
 }
 
 header .container nav {
 	float: right;
 	width: 285px;
+	margin-top: 15px;
 }
 
 main {
@@ -33,12 +37,13 @@ main {
 	overflow: auto;
 }
 
-main .mainleftcolumn {
+.mainleftcolumn {
 	float: left;
 	width: 570px;
+	margin-bottom: 20px;
 }
 
-main .mainrightcolumn {
+.mainrightcolumn {
 	float: right;
 	width: 285px;
 }
@@ -71,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 2.50em;
+	font-size: 3.00em;
 }
 
 h2 {
@@ -79,11 +84,11 @@ h2 {
 }
 
 h3 {
-	font-size: 1.25em;
+	font-size: 1.50em;
 }
 
 h4 {
-	font-size: 1.10em;
+	font-size: 1.25em;
 }
 
 h5 {
@@ -91,6 +96,41 @@ h5 {
 }
 
 h6 {
-	font-size: 0.80em;
+	font-size: 0.75em;
+}
 
+.headers {
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+.question {
+	font-style: italic;
+	margin-top: 10px;
+	margin-bottom: 2px;
+}
+
+a{
+	color: red;
+	text-decoration: none;
+}
+
+.amazeriffic {
+	color: maroon;
+	font-style: italic;
+}
+
+a {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: red;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: cornflowerblue;
+	text-decoration: underline;
 }
