@@ -13,7 +13,7 @@ body {
 
 header {
 	overflow: auto;
-	border-bottom: 1px solid darkslategray;
+	border-bottom: 5px solid lightgray;
 }
 
 h1 {
@@ -25,21 +25,23 @@ header p {
 	float: right;
 	width: 570px;
 	font-style: italic;
-	margin: 10px;
+	margin-top: 10px;
 }
 
 main {
 	overflow: auto;
+	padding: 30px;
+	border-bottom: 5px solid gray;
 }
 
 .comments-input {
 	float: left;
-	width: 285;
+	width: 285px;
 }
 
 .comments {
 	float: right;
-	width: 570;
+	width: 570px;
 }
 
 .comments p: {
@@ -56,5 +58,8 @@ main {
 
 
 footer {
+	font-size: 75%;
+	margin-top: 5px;
+	border-top: 1px darkslategray;
 
 }
