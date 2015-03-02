@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 855px;
+	margin: auto;
+	background: ivory;
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+header {
+	overflow: auto;
+	border-bottom: 1px solid darkslategray;
+}
+
+h1 {
+	float: left;
+	width: 285px;
+}
+
+header p {
+	float: right;
+	width: 570px;
+	font-style: italic;
+	margin: 10px;
+}
+
+main {
+	overflow: auto;
+}
+
+.comments-input {
+	float: left;
+	width: 285;
+}
+
+.comments {
+	float: right;
+	width: 570;
+}
+
+.comments p: {
+	border-radius: 1px;
+}
+
+.comments p:nth-child(even) {
+	background: lavender;
+}
+
+.comments p:nth-child(odd) {
+	background: gainsboro;
+}
+
+
+footer {
+
+}
