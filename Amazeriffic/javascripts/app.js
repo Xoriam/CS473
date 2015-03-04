@@ -24,7 +24,11 @@ var main = function () {
 			$("main .content").empty();
 
 			if ($element.parent().is(":nth-child(1)")) {
-				console.log("FIRST TAB CLICKED!");
+				$content = $("<ul>");
+				for (var i = toDos.length - 1; i >= 0; i--) {
+					$content.append($("<li>").text(toDos[i]));
+				}
+				$("main .content").append($content);
 			} else if ($element.parent().is(":nth-child(2)")) {
 				$content = $("<ul>");
 				toDos.forEach(function (todo) {
@@ -38,6 +42,8 @@ var main = function () {
 			return false;
 		});
 	});
+
+	$(".tabs a:first-child span").trigger("click");
 };
 
 $(document).ready(main);
