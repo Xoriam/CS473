@@ -1,32 +1,43 @@
 var main = function () {
 	"use strict";
 
-	$(".tabs a:nth-child(1)").on("click", function () {
-		//make all the tabs inactive
-		$(".tabs span").removeClass("active");
+	var toDos = [
+	"Finish writing this book",
+	"Take Gracie to the park",
+	"Answer emails",
+	"Prep for Monday's class",
+	"Make some new ToDos",
+	"Get Groceries"
+	];
 
-		//make the first tab active
-		$(".tabs a:nth_child(1) span").addClass("active");
+	$(".tabs a span").toArray().forEach(function (element) {
+		//Create a click handler for this event
+		$(element).on("click", function () {
+			// since we're using the jQuery version of element, 
+			// we'll go ahead and create a temporary variable 
+			// so we don't need to keep recreating it
+			var $element = $(element), 
+				$content;
 
-		//empty the main content so we can recreate it
-		$(".main content").empty();
+			$(".tabs a span").removeClass("active");
+			$(element).addClass("active");
+			$("main .content").empty();
 
-		//Return false so we don't follow the link;
-		return false;
+			if ($element.parent().is(":nth-child(1)")) {
+				console.log("FIRST TAB CLICKED!");
+			} else if ($element.parent().is(":nth-child(2)")) {
+				$content = $("<ul>");
+				toDos.forEach(function (todo) {
+					$content.append($("<li>").text(todo));
+				});
+				$("main .content").append($content);
+			} else if ($element.parent().is(":nth-child(3)")) {
+				console.log("THIRD TAB CLICKED");
+			}
+
+			return false;
+		});
 	});
-
-	$(".tabs a:nth-child(2)").on("click", function () { 
-		$(".tabs span").removeClass("active");
-		$(".tabs a:nth-child(2) span").addClass("active"); 
-		$("main .content").empty();
-		return false; 
-	});
-
-	$(".tabs a:nth-child(3)").on("click", function () { 
-		$(".tabs span").removeClass("active");
-		$(".tabs a:nth-child(3) span").addClass("active"); 
-		$("main .content").empty();
-		return false; });
 };
 
 $(document).ready(main);
