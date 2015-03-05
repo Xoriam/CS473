@@ -58,6 +58,18 @@ var main = function () {
 				$("main .content").append($inputToDo);
 				$("main .content").append($btn);
 
+			} else if ($element.parent().is(":nth-child(4)")) {
+				$("main .content").append($("<h3>").text("Amazeriffic Tabs Screenshots"));
+				$("main .content").append($("<div class='gallery'>"));
+				$("main .content .gallery").append($("<p><a class = 'pictures' href='images/newestTab.png' title='Ameriffic Main Tab'><img src='images/newestTab.png' alt='Tab shows to do list in order of newest items first' width='1342' height='889' class='screenshot'></a></p>"));
+
+				//$("main .content .gallery").append($("<p><a class = 'pictures' href='../images/oldestTab.png' title='Oldest Items First'><img src='../images/oldestTab.png' alt='Items are placed from eldest to youngest' width='1342' height='889' class='screenshot'></a></p>"));
+
+				//$("main .content .gallery").append($("<p><a class = 'pictures' href='images/addTab.png' title='Adding A New Item'><img src='images/addTab.png' alt='Screenshot 3 of Amazeriffic in action' width='1342' height='889' class='screenshot'></a></p>"));
+
+				$("main .content").append($("</div>"));
+
+				$(".pictures").colorBox();
 			}
 
 			return false;
