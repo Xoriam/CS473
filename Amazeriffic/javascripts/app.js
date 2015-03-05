@@ -8,7 +8,15 @@ var main = function () {
 	"Prep for Monday's class",
 	"Make some new ToDos",
 	"Get Groceries"
-	];
+	],
+	$inputToDo = $("<input type='text' class='inputBox'>"),
+	$btn = $("<button class='button'>+</button>"),
+	addCommentFromInputBox = function () {
+		if ($inputToDo.val() !== "") {
+			toDos.push($inputToDo.val());
+			$inputToDo.val("");
+		}
+	};
 
 	$(".tabs a span").toArray().forEach(function (element) {
 		//Create a click handler for this event
@@ -36,7 +44,20 @@ var main = function () {
 				});
 				$("main .content").append($content);
 			} else if ($element.parent().is(":nth-child(3)")) {
-				console.log("THIRD TAB CLICKED");
+
+				$btn.on("click", function (event) {
+					addCommentFromInputBox();
+				});
+
+				$inputToDo.on("keypress", function (event) {
+					if (event.keyCode === 13) {
+						addCommentFromInputBox();
+					}
+				});
+
+				$("main .content").append($inputToDo);
+				$("main .content").append($btn);
+
 			}
 
 			return false;

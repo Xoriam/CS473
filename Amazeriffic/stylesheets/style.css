@@ -48,6 +48,10 @@ main {
 	width: 285px;
 }
 
+.tabs {
+	padding-top: 10px;
+}
+
 .tabs a span {
 	display: inline-block;
 	border-radius: 5px 5px 0 0;
@@ -60,6 +64,46 @@ main {
 
 .tabs a span.active {
 	background: #eee;
+}
+
+.content {
+	margin-bottom: 5px;
+	background: lightgray; 
+	border-radius: 5px;
+}
+
+.content ul li {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.content ul li:nth-child(even) {
+	background: lavender;
+}
+
+.content ul li:nth-child(odd) {
+	background: gainsboro;
+}
+
+.content .inputBox {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	width: 25%;
+	height: 30px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.content button {
+	font-weight: bold;
+	padding: 3px;
+	border-radius: 5px;
+	color: ivory;
+	background: olivedrab;
+	cursor: pointer;
+	font-size: 1.5em;
+	margin-left: 5px;
 }
 
 footer {
@@ -114,8 +158,8 @@ h6 {
 }
 
 .headers {
-	margin-top: 50px;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 15px;
 }
 
 .question {
