@@ -9,7 +9,18 @@ var main = function () {
 
 	$.getJSON(url, function (flickrResponse) {
 		flickrResponse.items.forEach(function (photo) {
-			console.log(photo.media.m);
+			//Create a new jQuery element to hold the image
+			//but hide it so we can fade it in
+			var $img = $("<img>").hide();
+
+			//set the attribute to the url
+			//contained in the response
+			$img.attr("src", photo.media.m);
+
+			//attach the img tag to the main
+			//photo element
+			$("main .photos").append($img);
+			$img.fadeIn();
 		});
 	});
 };
