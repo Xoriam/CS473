@@ -8,9 +8,9 @@ var main = function () {
 	var url = "http://api.flickr.com/services/feeds/photos_public.gne?" + "tags=dogs&format=json&jsoncallback=?";
 
 	$.getJSON(url, function (flickrResponse) {
-		//We'll simply print the response to the console
-		//for the time being
-		console.log(flickrResponse);
+		flickrResponse.items.forEach(function (photo) {
+			console.log(photo.media.m);
+		});
 	});
 };
 
