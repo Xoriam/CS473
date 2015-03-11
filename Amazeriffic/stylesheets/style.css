@@ -60,7 +60,7 @@ main .container {
 .tabs a span {
 	display: inline-block;
 	border-radius: 5px 5px 0 0;
-	width: 150px;
+	width: 100px;
 	margin-right: 10px;
 	text-align: center;
 	background: #ddd;
@@ -71,24 +71,27 @@ main .container {
 	background: #eee;
 }
 
-.content {
-	margin-bottom: 5px;
-	background: lightgray; 
-	border-radius: 5px;
+main .content {
+	padding: 30px 10px 30px 10px;
+    border-radius: 0 5px 5px 5px;
+    background: gainsboro;
 }
 
-.content ul li {
-	padding: 5px;
+main .content ul li {
+	background: lavender;
 	border-radius: 5px;
+	padding: 3px;
+	margin: 0 0 10px 0;
 }
 
-.content ul li:nth-child(even) {
+/*
+main .content ul li:nth-child(even) {
 	background: lavender;
 }
 
-.content ul li:nth-child(odd) {
+main .content ul li:nth-child(odd) {
 	background: gainsboro;
-}
+}*/
 
 .content .inputBox {
 	margin-top: 10px;

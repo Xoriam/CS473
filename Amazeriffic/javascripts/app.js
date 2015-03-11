@@ -27,19 +27,27 @@ var main = function (toDoObjects) {
 			$("main .content").empty();
 
 			if ($element.parent().is(":nth-child(1)")) {
+				//New to Old Tab
 				$content = $("<ul>");
 				for (var i = toDos.length - 1; i >= 0; i--) {
 					$content.append($("<li>").text(toDos[i]));
 				}
 				$("main .content").append($content);
+
 			} else if ($element.parent().is(":nth-child(2)")) {
+				//Old to New Tab
 				$content = $("<ul>");
 				toDos.forEach(function (todo) {
 					$content.append($("<li>").text(todo));
 				});
 				$("main .content").append($content);
-			} else if ($element.parent().is(":nth-child(3)")) {
 
+			} else if ($element.parent().is(":nth-child(3)")) {
+				//Tags Tab
+				console.log("Hello World!");
+
+			} else if ($element.parent().is(":nth-child(4)")) {
+				//Add tab
 				$btn.on("click", function (event) {
 					addCommentFromInputBox();
 				});
@@ -53,18 +61,22 @@ var main = function (toDoObjects) {
 				$("main .content").append($inputToDo);
 				$("main .content").append($btn);
 
-			} else if ($element.parent().is(":nth-child(4)")) {
-				$("main .content").append($("<h3>").text("Amazeriffic Tabs Screenshots"));
-				$("main .content").append($("<div class='gallery'>"));
-				$("main .content .gallery").append($("<p><a class = 'pictures' href='images/newestTab.png' title='Ameriffic Main Tab'><img src='images/newestTab.png' alt='Tab shows to do list in order of newest items first' width='1342' height='889' class='screenshot'></a></p>"));
+			} else if ($element.parent().is(":nth-child(5)")) {
+				//Demonstration Tab
+				//$("main .content").append($("<h3>").text("Amazeriffic Tabs Screenshots"));
+				//$("main .content").append($("<div class='gallery'>"));
+				//$("main .content .gallery").append($("<p><a class = 'pictures' href='images/newestTab.png' title='Ameriffic Main Tab'><img src='images/newestTab.png' alt='Tab shows to do list in order of newest items first' width='1342' height='889' class='screenshot'></a></p>"));
 
 				//$("main .content .gallery").append($("<p><a class = 'pictures' href='../images/oldestTab.png' title='Oldest Items First'><img src='../images/oldestTab.png' alt='Items are placed from eldest to youngest' width='1342' height='889' class='screenshot'></a></p>"));
 
 				//$("main .content .gallery").append($("<p><a class = 'pictures' href='images/addTab.png' title='Adding A New Item'><img src='images/addTab.png' alt='Screenshot 3 of Amazeriffic in action' width='1342' height='889' class='screenshot'></a></p>"));
 
-				$("main .content").append($("</div>"));
+				//$("main .content").append($("</div>"));
 
-				$(".pictures").colorBox();
+				//$(".pictures").colorBox();
+
+				console.log("Hello World!");
+
 			}
 
 			return false;
