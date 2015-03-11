@@ -1,14 +1,9 @@
-var main = function () {
+var main = function (toDoObjects) {
 	"use strict";
 
-	var toDos = [
-	"Finish writing this book",
-	"Take Gracie to the park",
-	"Answer emails",
-	"Prep for Monday's class",
-	"Make some new ToDos",
-	"Get Groceries"
-	],
+	var toDos = toDoObjects.map(function (toDo) {
+		return toDo.description;
+	}),
 	$inputToDo = $("<input type='text' class='inputBox'>"),
 	$btn = $("<button class='button'>+</button>"),
 	addCommentFromInputBox = function () {
@@ -79,4 +74,9 @@ var main = function () {
 	$(".tabs a:first-child span").trigger("click");
 };
 
-$(document).ready(main);
+$(document).ready(function () {
+	$.getJSON("todos.json", function (toDoObjects) {
+		//call main with the to-dos as an argument
+		main(toDoObjects);
+	});
+});
