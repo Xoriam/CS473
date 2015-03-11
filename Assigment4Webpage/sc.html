@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Connect with SoundCloud</title>
+  </head>
+  <body onload="window.opener.setTimeout(window.opener.SC.connectCallback, 1)">
+    <b style="width: 100%; text-align: center;">This popup should automatically close in a few seconds</b>
+ <script>
+  SC.initialize({
+  client_id: "97a3599386ac425b878d649e1f0bb842",
+  redirect_uri: "http://example.com/callback.html",
+});
+
+SC.connect(function(){
+  SC.put("/me/followings/3207", function(user, error){
+    if(error){
+      alert("Error: " + error.message);
+    }else{
+      alert("You are now following " + user.username);
+    }
+  });
+});
+</script>
+<div id="scloud"></div>
+<h2>Click to sign in!</h2>
+<iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fsignup&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
+  </body>
+</html>

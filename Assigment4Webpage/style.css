@@ -1,0 +1,12 @@
+body {
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+header, main, footer {
+	min-width: 855px;
+}
+
+header h1 {
+	color: red;
+}
