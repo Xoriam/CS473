@@ -8,6 +8,7 @@ var main = function () {
 	var url = "http://api.flickr.com/services/feeds/photos_public.gne?" + "tags=dogs&format=json&jsoncallback=?";
 
 	$.getJSON(url, function (flickrResponse) {
+		console.log(flickrResponse);
 		flickrResponse.items.forEach(function (photo) {
 			//Create a new jQuery element to hold the image
 			//but hide it so we can fade it in
