@@ -8,8 +8,9 @@ var main = function () {
 	var $movieDB, $url, $t, $type;
 
 	$(".movieButton").on("click", function () {
-		$url = "http://www.imdbapi.com/?t=";
+		$url = "http://www.omdbapi.com/?t=";
 		$t = $(".movieName").val();
+		$(".movieName").val("");
 		$t = $t.replace(/ /gi, "+");
 
 		console.log($t);
@@ -23,14 +24,11 @@ var main = function () {
 				movie = JSON.parse(movie);
 				console.log(movie.Poster);
 
-				var $title = $("<a>");
 				var $img = $("<img>").hide();
 
-				$title.attr("href", movie.Poster);
-
 				$img.attr("src", movie.Poster);
-				$(".imdbapi").append($title);
-				$(".imdbapi").append($img);
+				
+				$(".omdbapi").append($img);
 				$img.fadeIn();
 			},
 
