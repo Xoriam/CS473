@@ -22,7 +22,7 @@ var main = function () {
 
 			success: function (movie) {
 				movie = JSON.parse(movie);
-				console.log(movie.Poster);
+				console.log(movie);
 
 				var $img = $("<img>").hide();
 
