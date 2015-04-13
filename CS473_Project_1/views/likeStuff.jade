@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= title
+  #container.container
+    div("content"='').box.col-md-3
+      //a(href="/newuser") +Add Users
+      ul App Users
+        each user, i in dashboard
+          li
+            a(href="/viewotheruser?_id=#{user._id}")= user.username
+
+    div("content"='').box.col-md-3
+      a(href="/newlike") +Add Books
+      ul Books
+        each book, i in booklist
+          li
+            a(href="/viewlike?_id=#{book._id}")= book.name
+
+    div("content"='').box.col-md-3
+      a(href="/newlike") +Add Movies
+      ul Movies
+        each movie, i in movielist
+          li
+            a(href="/viewlike?_id=#{movie._id}")= movie.name
+
+    div("content"='').box.col-md-3 
+      a(href="/newlike") +Searches
+      ul
+        each search, i in searchlist
+          li
+            a(href="/viewlike?_id=#{search._id}")= search.name

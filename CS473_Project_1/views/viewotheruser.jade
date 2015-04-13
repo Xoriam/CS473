@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	h1= title
+	each user, i in userlist
+		form#AddUser(role="form", method="post",action="/befrienduser?_id=#{user._id}")
+			.form-group
+				label Enter Username
+				input.form-control#inputUserName(type="text", placeholder="username"
+					, name="username" value="#{user.username}" Disabled)
+				
+				label(for="useremail") Enter Email Address
+				input.form-control#inputUserEmail(type="text", placeholder="email", 
+					name="useremail", value="#{user.email}", Disabled)				
+										
+			.form-group
+				label(for="status") Status
+				input.form-control#inputUserStatus(type="text", value="#{user.status}", name="status" Disabled)
+				label(for="role") Role
+				input.form-control#inputUserStatus(type="text", value="#{user.Role}", name="role" Disabled)										
+			.form-group
+				button#btnUnlock(type="submit", name="befriend").btn.btn-danger Friend Request
+				button#btnUnlock(type="submit", name="message").btn.btn-danger Send a Message

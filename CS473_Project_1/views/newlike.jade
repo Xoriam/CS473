@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	h1= title
+	.col-md-5
+		form#AddProject(role="form", method="post", action="/addlike")
+			.form-group
+				label(for="category") Choose Category
+				select(name="category")
+					option(value="Books" selected) Books
+					option(value="Friends") Friends
+					option(value="Movies") Movies
+					option(value="Searches") Searches
+			.form-group
+				label Like Name
+				input.form-control(type="text", placeholder="Name", name="name")
+			.form-group
+				label(for="description") Enter Description
+				textarea.form-control#inputdescription(type="text", placeholder="Description", name="description")
+			.form-group
+				label(for="sbn") SBN (if book)
+				input.form-control#inputstartdate(type="text", placeholder="SBN", name="sbn")
+	
+				button#btnSubmit(type="submit").btn.btn-danger Submit
+				if messges
+					each msg, i in messges
+						p #{msg.msg}
+
+	div(class="col-md-5")
+		div(class='row')
+			div(id='search', class="navbar-header")
+				input.form-control(id='key', type='text', class="form-control", placeholder="Enter something..")
+				input.form-control(id='submit', type='button', value='submit', class="btn btn-info")
+		div(class='row')
+			div(id='results')
+
+	script(src="/js/search.js", type="text/javascript")

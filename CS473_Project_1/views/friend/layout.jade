@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        // title is a variable passed from the controllers/models
+        title=title
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css')
+    body
+        block header
+            nav(class="navbar navbar-inverse")
+                div(class="container-fluid")
+                    div(class="navbar-header")
+                        a(class="navbar-brand", href="#") Group Project
+                    div(class="collapse navbar-collapse",id="navbar-collapse")
+                        ul(class="nav navbar-nav navbar-right")
+                            li(class="dropdown")
+                                a(href="#",class="dropdown-toggle",data-toggle="dropdown",role="button",aria-expanded="false") Friends
+                                    span(class="caret")
+                                ul(class="dropdown-menu",role="menu")
+                                    li
+                                        a(href="/friend/list") List
+                                    li
+                                        a(href="/friend/find") Find
+                                    li
+                                        a(href="/friend/discover") Discover
+        block content
+        block footer
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+        // Below JS file is meant only for friend pages
+        script(src="/js/friend.js")

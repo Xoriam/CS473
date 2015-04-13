@@ -1,0 +1,56 @@
+extends layout
+
+block content
+	h1= title
+	each user, i in userlist
+		form#AddUser(role="form", method="post",action="/edituser?_id=#{user._id}")
+			.form-group
+				label Enter Username
+				if IsEnabled===true
+					input.form-control#inputUserName(type="text", placeholder="username"
+						, name="username" value="#{user.username}")
+				else
+					input.form-control#inputUserName(type="text", placeholder="username"
+						, name="username" value="#{user.username}" Disabled)
+				
+				label(for="useremail") Enter Email Address
+				if IsEnabled===true
+					input.form-control#inputUserEmail(type="text", placeholder="email", name="useremail", value="#{user.email}")			
+				else 
+					input.form-control#inputUserEmail(type="text", placeholder="email", 
+						name="useremail", value="#{user.email}", Disabled)				
+				
+				label(for="userpassword") Enter Password
+				if IsEnabled===true
+					input.form-control#inputUserPassword(type="password", value="#{user.password}"
+						, placeholder="user password", name="userpassword")
+				else
+					input.form-control#inputUserPassword(type="password", value="#{user.password}"
+						, placeholder="userpassword", name="userpassword", Disabled)
+										
+			.form-group
+				if IsEnabled===true
+					label(for="status") Choose Status:
+					select#Dropdown(name="status", value="#{user.status}")
+						option(value="Initialized", selected=user.status=="Initialized") Initialized
+						option(value="Active", selected=user.status=="Active") Active
+						option(value="Locket Out", selected=user.status=="Locked Out") Locked Out
+						
+					label(for="role") Choose Role:
+					select#Dropdown(name="role", value="#{user.Role}")
+						option(value="Free", selected=(user.Role=="Free")) Free Account
+						option(value="Basic", selected=(user.Role=="Basic")) Basic Account
+						option(value="Premium", selected=(user.Role=="Premium")) Premium Account
+				else
+					label(for="status") Status
+					input.form-control#inputUserStatus(type="text", value="#{user.status}"
+						, name="status" Disabled)
+					label(for="role") Role
+					input.form-control#inputUserStatus(type="text", value="#{user.Role}"
+						, name="role" Disabled)										
+			.form-group
+				if IsEnabled===true
+					button#btnSubmit(type="submit", name="edit").btn.btn-success Edit Record
+				else
+					button#btnEnabler(type="submit", name="enabler").btn.btn-warning Enable Edit
+				button#btnUnlock(type="submit", name="delete").btn.btn-danger Delete Account

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	//h1= title
+	form#AddUser(role="form", method="post",action="/adduser")
+		.form-group
+			label Enter Username
+			input.form-control(type="text", placeholder="username", name="username")
+		.form-group
+			label(for="useremail") Enter Email Address
+			input.form-control#inputUserEmail(type="text", placeholder="user email"
+				, name="useremail")
+		.form-group
+			label(for="userpassword") Enter Password
+			input.form-control#inputUserPassword(type="password"
+				, placeholder="user password", name="userpassword")
+		.form-group
+			label(for="userpasswordvalid") Confirm Password
+			input.form-control#inputUserPasswordValid(type="password"
+				, placeholder="confirm user password", name="userpasswordvalid")
+		.form-group
+			label(for="status") Choose Status
+			select#Dropdown(name="status")
+				option(value="Initialized", selected="selected") Initialized
+				option(value="Active") Active
+				option(value="Locked Out") Locked Out
+				
+		.form-group
+			label(for="role") Choose Role
+			select#Dropdown(name="role")
+				option(value="Free") Free Account
+				option(value="Basic") Basic Account
+				option(value="Premium", selected="selected") Premium Account
+				
+		button#btnSubmit(type="submit").btn.btn-primary Submit
+		if messges
+			each msg, i in messges
+				p #{msg.msg}	

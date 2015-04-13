@@ -1,0 +1,97 @@
+/* Written by scienceiscool
+   References:
+     - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+     - http://stackoverflow.com/questions/9285451/handling-css-id-and-classes-with-spaces
+*/
+
+body {
+  padding: 15px;
+  font-size: small;
+  font-family: "Arial", sans-serif;
+}
+
+a {
+  color: #141515;
+}
+
+/* Resolving Black on Black color issue on friend's pages */
+div.thumbnail div.caption div.match a {
+  color: #ffffff;
+}
+
+/* resolving styling in likestuff page */
+.box {
+  height:200px;
+  float:left;
+  display:inline-block;
+  vertical-align: center;
+}
+
+/* Knew how to access the class "nav nav-pills" from
+   http://stackoverflow.com/questions/9285451/handling-css-id-and-classes-with-spaces
+ul .nav.nav-pills {
+  padding: 5px;
+}*/
+
+.form-control { /* This controls the text being typed into a text box on the log in or create account page */
+  color: black;
+}
+
+.row .col-md-6 {
+  font-size: x-large;
+  /*text-align: center;*/
+}
+
+.row .col-md-4 {
+  font-size: x-large;
+  /*text-align: center;*/
+}
+
+#AddUser {
+  padding: 6%;
+}
+
+#AddUser input { /* Controls size of text boxes to log in or create account */
+  width: 500px;
+}
+
+#Dropdown {
+  margin: 4px;
+  color: #040705;
+}
+
+select {
+  color: black;
+}
+option {
+  color: black;
+}
+
+header {
+  padding: 8px;
+  background: #FC4B1F;
+  overflow: auto;
+  text-align: left;
+  border: 2px #ddd dotted;
+}
+
+header nav#right {
+  margin: 5px;
+  float: right;
+}
+
+header nav#left {
+  font-style: italic;
+  margin: 6px;
+  float: left;
+  width: 200px;
+}
+
+/*Obtained from:
+http://stackoverflow.com/questions/21447269/how-to-limit-the-length-of-text-in-a-paragraph*/
+#brief-message {
+     width: 750px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}

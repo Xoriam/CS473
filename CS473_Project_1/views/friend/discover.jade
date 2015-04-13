@@ -1,0 +1,28 @@
+//
+   Created by Eric on 3/21/15.
+
+extends ../layout
+block content
+  div(class='container')
+    ul(class='nav nav-pills',role="tablist")
+      li(class="active", role="presentation")
+        a(href="/friend/discover") Discover Friends
+      li(class="not-selected", role="presentation")
+        a(href="/friend/find") Find Friends
+      li(class="not-selected", role="presentation")
+        a(href="/friend/pending") Friend Requests
+      li(class="not-selected", role="presentation")
+        a(href="/friend/list") Friends list
+  div(class="container")
+    div(class="row")
+      h1(class="col-md-6") Discover new friends
+      // Disabled because pagination is not ready
+      //nav(class="col-md-3 pull-right")
+        ul(class="pagination pull-right")
+          li
+            a(href="#",id="prev") Previous
+          li
+            a(href="#",id="next") Next
+    div(class="row discoverfriends")
+block footer
+  script(src="/js/friend.js")

@@ -1,0 +1,53 @@
+extends layout
+block content
+	- //Navigation bar between the mail list and compose.
+	div(class='container')
+		ul(class='nav nav-pills',role="tablist")
+			li(role="presentation",class="active")
+				a(href="mail") Messages
+					-var n = 0;
+					each message in mail
+						if !message.Read && message.To === currentUser.username
+							- n++;
+					span(class="badge")=n
+			li(role="presentation")
+				a(href="compose") Compose
+
+
+		div(class='jumbotron')
+			- //Check to see if the user has any message.
+			- var i = false;
+			each message in mail
+				- if(currentUser.username === message.To && i === false) {
+					- i = true;
+				- }	
+			- //If that user has no message, they get a simple response saying they have no new messages.
+			- if (i === false) {
+				p You currently have no mail. Get out there and chat!
+			- } else { //Otherwise, they get a list of their messages.
+				each message in mail
+					- //Filtering out any messages that are not their and removing any sent messages.
+					- if(message.From === currentUser.username || message.To === currentUser.username) {
+						- if(message.From !== currentUser.username) {
+							a(href="respond?_id=#{message._id}",class='list-group-item' id=message.From).btn.btn-primary reply
+								div(class='container')
+									div(class='col-md-10')
+										h4(class='list-group-item-heading text-left')=message.From
+										h5(class='list-group-item-heading text-left')=message.Subject
+										- var len = message.Body.length;
+										p(class='list-group-item-text text-left', id='brief-message')=message.Body[len-1].friend_username
+									div(class='col-md-2')
+										if !message.Read
+											span(class="badge") New
+
+										- //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
+										- //Usign the Timestamp taken when the message was created and adding an offset of -8 hours to account for PST.
+										- var date = message.Date;
+										- var currentTimeZoneOffsetinHours = -480;
+										- var offsetTime = new Date(date.getTime() + currentTimeZoneOffsetinHours * 60 * 1000);
+										- //This sets the Date object into readable Date and Time strings.
+										h5(class='list-group-item-text text-heading')=offsetTime.toLocaleDateString()
+										h5(class='list-group-item-text text-heading')=offsetTime.toLocaleTimeString()
+						- }
+					- }
+			- }

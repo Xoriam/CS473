@@ -1,0 +1,34 @@
+extends layout
+block content
+	div(class='container')
+		ul(class='nav nav-pills',role="tablist")
+			li(role="presentation")
+				a(href="mail") Messages
+					span(class="badge")
+			li(role="presentation",class="active")
+				a(href="compose") Compose
+				
+	each message in mail
+		form#AddMail(role="form", method="post",action="/addmail?_id=#{message._id}")
+			div(class='jumbotron')
+				div(class='row')
+					div(class='col-md-2')
+					div(class='well contianer col-md-8', id='chat')
+						each line in bod
+							p #{message.From} : #{line.friend_username}
+					div(class='col-md-2')
+				div(class='row')
+					div(class='col-md-2')
+					div(class='container col-md-8')
+						div(class='input-group')
+							span(class='input-group-addon',id='sizing-addon2') Mail To    
+							input(type='text',class='form-control',placeholder='Username', name='Username',aria-describedby='sizing-addon2', value="#{message.From}")
+						div(class='input-group')
+							span(class='input-group-addon',id='sizing-addon2') Subject
+							input(type='text',class='form-control',placeholder='Subject', name='Subject',aria-describedby='sizing-addon2', value="#{message.Subject}")
+						div(class='input-group')
+							span(class='input-group-addon',id='sizing-addon2') Message   		
+							textarea(class='form-control',rows='5',placeholder="Enter your message here...", name='Message', style="resize:none")
+						button(type='submit',class="input-group-button btn btn-primary", name="respond") Send
+							span(class='glyphicon glyphicon-send', aria-hidden='true')
+					div(class='col-md-2')

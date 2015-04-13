@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  main
+    form#AddUser(role="form", method="post",action="/login")
+      .form-group
+        label Enter Username 
+        input.form-control(type="text", placeholder="username", name="username")
+      .form-group
+        label(for="userpassword") Enter Password
+        input.form-control#inputUserPassword(type="password", placeholder="user password", name="userpassword")
+      .form-group
+        a(href="newuser") Don't have an account yet? Click here.
+
+      button#btnSubmit(type="submit").btn.btn-primary Submit
+
+      if (reason) 
+        .form-group
+        label #{reason}

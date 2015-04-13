@@ -1,0 +1,30 @@
+extends layout
+block content
+	-//Navigation for mail
+	div(class='container')
+		ul(class='nav nav-pills',role="tablist")
+			li(role="presentation")
+				a(href="mail") Messages
+					span(class="badge")
+			li(role="presentation",class="active")
+				a(href="compose") Compose
+				
+	-//This form is used to make POST back to the server with a new message being composed from the user to
+	-//another.
+	form#AddMail(role="form", method="post",action="/addmail")
+		div(class='jumbotron')
+			div(class='container' id='chat')
+			div(class='col-md-2')
+			div(class='container col-md-8')
+				div(class='input-group')
+					span(class='input-group-addon',id='sizing-addon2') Mail To    
+					input(type='text',class='form-control',placeholder='Username', name='Username',aria-describedby='sizing-addon2')
+				div(class='input-group')
+					span(class='input-group-addon',id='sizing-addon2') Subject
+					input(type='text',class='form-control',placeholder='Subject', name='Subject',aria-describedby='sizing-addon2')
+				div(class='input-group')
+					span(class='input-group-addon',id='sizing-addon2') Message   		
+					textarea(class='form-control',rows='5',placeholder="Enter your message here...", name='Message', style="resize:none")
+				button(type='submit',class="input-group-button btn btn-primary", align='right') Send
+					span(class='glyphicon glyphicon-send', aria-hidden='true')
+			div(class='col-md-2')

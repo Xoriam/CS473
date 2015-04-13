@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	h1= title
+	each proj, i in projectlist
+		form#editProject(role="form", method="post", action="/editlike?_id=#{proj._id}")
+			.form-group
+				if IsEnabled===true
+					label(for="category") Choose Category
+					select(name="category" value="{proj.category}")
+						option(value="Books", selected=proj.category=="Books") Books
+						option(value="Friends", selected=proj.category=="Friends") Friends
+						option(value="Movies", selected=proj.category=="Movies") Movies
+						option(value="Searches", selected=proj.category=="Searches") Movies
+				else
+					label(for="category") Category
+					input.form-control#inputUserStatus(type="text", value="#{proj.category}"
+						, name="category" Disabled)
+
+			.form-group
+				label Like Name
+				if IsEnabled===true
+					input.form-control(type="text", placeholder="name", name="name", value="#{proj.name}")
+				else
+					input.form-control(type="text", placeholder="name", name="name", value="#{proj.name}", Disabled)
+			.form-group
+				label(for="description") Enter Description
+				if IsEnabled===true
+					input.form-control#inputdescription(type="text", placeholder="Description"
+						, name="description", value="#{proj.Description}")
+				else
+					input.form-control#inputdescription(type="text", placeholder="Description"
+						, name="description", value="#{proj.Description}", Disabled)
+			.form-group
+				label(for="SBN") SBN
+				if IsEnabled===true
+					input.form-control#inputstartdate(type="text", placeholder="SBN"
+						, name="sbn", value="#{proj.SBN}")
+				else
+					input.form-control#inputstartdate(type="text", placeholder="SBN"
+						, name="sbn", value="#{proj.SBN}", Disabled)
+						
+			if currentUser._id===proj.userRec._id
+				if IsEnabled===true
+					button#btnEdit(type="submit", name="edit").btn.btn-success Edit Record
+				else
+					button#btnEnabler(type="submit", name="enabler").btn.btn-warning Enable Record Edit
+				button#btnDelete(type="submit", name="delete").btn.btn-danger Delete Like Entry
+						

@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    script(src="http://code.jquery.com/jquery-2.0.2.js", type="text/javascript")
+    script(src="/js/bootstrap.js", type="text/javascript")
+    link(href="/css/bootstrap.css", rel="stylesheet")
+    link(rel='stylesheet', type='text/css', href='/css/bootstrap-theme.css', media='screen')
+    link(rel='stylesheet', type='text/css', href='/css/justified-nav.css', media='screen')
+    link(rel='stylesheet', type='text/css', href='/css/normal.css', media='all')
+    link(href='/css/style.css', rel="stylesheet")
+    
+  body
+    block head
+      header
+        h1= title
+        div("content"='' "class"='container')
+        nav#left
+          if (currentUser)
+            label#thisUser Currently logged in as: #{currentUser.username}
+
+        nav#right
+          if (currentUser)
+            a(href='/').btn.btn-success Homepage
+            a(href='/friend/discover').btn.btn-warning Friends
+            a(href='/mail').btn.btn-warning Mail
+            a(href='/likeStuff').btn.btn-warning Like Stuff
+            a(href='/viewuser?_id=#{currentUser._id}').btn.btn-primary Account Info             
+            a(href='/aboutUs').btn.btn-primary About Us
+            a(href='/help').btn.btn-primary Help
+            a(href='/logout').btn.btn-danger Logout
+          else
+            a(href='/login').btn.btn-primary Log In
+            a(href='/newuser').btn.btn-primary Register
+
+    block content
+    block footer
